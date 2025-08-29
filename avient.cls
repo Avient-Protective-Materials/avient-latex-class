@@ -1,11 +1,11 @@
 
 %% ===============================================================
 %% avient.cls -- Corporate document class (PDF/PNG logo only)
-%% Style variant: apm-report  |  v0.7.2  (2025-08-29)
+%% Style variant: apm-report  |  v0.7.3  (2025-08-29)
 %% Maintainer: Matthias Arras
 %% ===============================================================
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{avient}[2025/08/28 v0.7.2 Avient corporate class]
+\ProvidesClass{avient}[2025/08/28 v0.7.3 Avient corporate class]
 
 % ---------- Base class
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
@@ -125,12 +125,34 @@
   \end{minipage}%
 }
 \fancyhead[R]{\HeaderLogoBlock}
-\fancyfoot[R]{\small Page~\textbar~\thepage{}}
+\fancyfoot[R]{\small Page~\textbar~{\color{brandmain}\thepage{}}}
 \renewcommand{\headrulewidth}{0pt}
 
 % ---------- Section heading style
-\titleformat{\section}{\Large\bfseries\color{brandmain}}{}{0pt}{}
+% Numbered sections
+\setcounter{secnumdepth}{3} % ensure sections/subsections are numbered (article default is 3)
+
+\titleformat{\section}
+  {\Large\bfseries\color{brandmain}} % format
+  {\thesection}                      % label -> restore numbering
+  {0.6em}                            % sep between number and title
+  {}                                 % before-code
+
 \titlespacing*{\section}{0pt}{1.5ex plus 1ex minus .2ex}{0.5ex}
+
+% (Optional) numbered subsections in dark accent
+\titleformat{\subsection}
+  {\large\bfseries\color{branddark}}
+  {\thesubsection}
+  {0.5em}
+  {}
+
+\titlespacing*{\subsection}{0pt}{1.0ex plus .6ex minus .2ex}{0.4ex}
+
+% Match styling for *unnumbered* \section* (used by Executive summary)
+\titleformat{name=\section,numberless}
+  {\Large\bfseries\color{brandmain}}
+  {}{0pt}{}
 
 % ---------- Title block
 \newcommand{\TopStrut}{\rule{100pt}{0pt}\vspace{-1.0em}} % height only, zero width
@@ -140,7 +162,7 @@
     \TopStrut\par
     \raggedright
     {\bfseries\fontsize{22}{26}\selectfont \apm@title\par}
-    \ifdefempty{\apm@subtitle}{}{\vspace{3pt}{\itshape \Large \apm@subtitle\par}}
+    \ifdefempty{\apm@subtitle}{}{\vspace{3pt}{\itshape\Large \apm@subtitle\par}}
   \end{minipage}\hfill
   \begin{minipage}[t]{0.40\textwidth}
     \TopStrut\par
@@ -184,9 +206,11 @@
 
 % ---------- Executive summary environment
 \newenvironment{executivesummary}{%
-  \par\vspace{0.4em}
-  {\Large\bfseries\color{brandmain} Executive summary}\par\vspace{0.3em}
-}{\par\vspace{0.8em}}
+  \section*{Executive summary}% styled via name=\section,numberless above
+  % If you want it in the ToC, uncomment the next two lines:
+  \phantomsection
+  \addcontentsline{toc}{section}{Executive summary}%
+}{}
 
 % ---------- Style variant option
 \newif\ifapmreport
