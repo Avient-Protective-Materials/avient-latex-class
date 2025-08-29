@@ -290,40 +290,7 @@ Run twice if you want cross-references (e.g., total pages) to resolve.
 
 ## License
 
-- Use your preferred license for `avient.cls`.
-- If using `FiraSans`, the fonts are under the **SIL Open Font License 1.1** (see the package docs).
+- For internal use
+- `FiraSans`, the fonts are under the **SIL Open Font License 1.1** (see the package docs).
 
 ---
-
-## Template (starter)
-
-```tex
-\documentclass[apm-report]{avient}
-
-% Identity
-\setcompanylogo{brand/avient-logo.pdf}
-\setcompanyname{Avient Protective Materials Services B.V.}
-\setcompanyaddress{Chemelot Gate 2\\Building 200\\Urmonderbaan 22\\6167 RD Geleen\\The Netherlands}
-
-% Document meta
-\title{Your report title}
-\subtitle{Optional subtitle}
-\author{Name Surname}
-\setreviewer{}                         % leave empty to hide
-\setto{Recipient A; Recipient B}
-\setcc{Copy One; Copy Two}
-\setdocid{RDA-00001234}
-\date{\today}
-
-\begin{document}
-\maketitle
-
-\begin{executivesummary}
-Short actionable summary.
-\end{executivesummary}
-
-\section{Introduction}
-Body text…
-
-\end{document}
-```
