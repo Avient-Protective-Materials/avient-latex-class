@@ -3,7 +3,7 @@
 A lightweight LaTeX class for A4 reports in the **Avient Protective Materials** style.
 It provides a branded title block, logo header, corporate colors, and a clean section style.
 
-**Current version:** v0.7.1 (2025-08-28)  
+**Current version:** v0.7.2 (2025-08-29)  
 **Maintainer:** Matthias Arras
 
 ---
@@ -279,6 +279,9 @@ Run twice if you want cross-references (e.g., total pages) to resolve.
 ---
 
 ## Changelog (high‑level)
+- **v0.7.2 (2025-08-29)**
+  - Elevated subtitle to fontsize `\Large`
+  - Set Confidential as default in example.tex
 
 - **v0.7.1 (2025‑08‑28)**
   - Adopt `FiraSans` package by default (`sfdefault,light`)

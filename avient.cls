@@ -1,11 +1,11 @@
 
 %% ===============================================================
 %% avient.cls -- Corporate document class (PDF/PNG logo only)
-%% Style variant: apm-report  |  v0.7.1  (2025-08-28)
+%% Style variant: apm-report  |  v0.7.2  (2025-08-29)
 %% Maintainer: Matthias Arras
 %% ===============================================================
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{avient}[2025/08/28 v0.7.1 Avient corporate class]
+\ProvidesClass{avient}[2025/08/28 v0.7.2 Avient corporate class]
 
 % ---------- Base class
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
@@ -140,7 +140,7 @@
     \TopStrut\par
     \raggedright
     {\bfseries\fontsize{22}{26}\selectfont \apm@title\par}
-    \ifdefempty{\apm@subtitle}{}{\vspace{3pt}{\itshape \apm@subtitle\par}}
+    \ifdefempty{\apm@subtitle}{}{\vspace{3pt}{\itshape \Large \apm@subtitle\par}}
   \end{minipage}\hfill
   \begin{minipage}[t]{0.40\textwidth}
     \TopStrut\par
