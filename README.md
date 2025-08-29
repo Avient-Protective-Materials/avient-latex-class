@@ -3,7 +3,7 @@
 A lightweight LaTeX class for A4 reports in the **Avient Protective Materials** style.
 It provides a branded title block, logo header, corporate colors, and a clean section style.
 
-**Current version:** v0.7.3 (2025-08-29)  
+**Current version:** v0.7.4 (2025-08-29)  
 **Maintainer:** Matthias Arras
 
 ---
@@ -207,6 +207,8 @@ The class turns semicolons into line breaks for names/recipients:
 ### Environments
 - `executivesummary` — large, bold, branded heading “Executive summary”
 
+### FancyHDR Control
+- `\thispagestyle{plain}` — hide the avient-logo if needed on landscape pages 
 ---
 
 ## Class options
@@ -279,6 +281,9 @@ Run twice if you want cross-references (e.g., total pages) to resolve.
 ---
 
 ## Changelog (high‑level)
+- **v0.7.4 (2025-08-29)**
+  - pagestyle `plain` without avient-logo.pdf
+  
 - **v0.7.3 (2025-08-29)**
   - Sections are numbered by default
   - Executive Summary part of TOC

@@ -1,11 +1,11 @@
 
 %% ===============================================================
-%% avient.cls -- Corporate document class (PDF/PNG logo only)
-%% Style variant: apm-report  |  v0.7.3  (2025-08-29)
+%% avient.cls -- Corporate document class
+%% Style variant: apm-report  |  v0.7.4  (2025-08-29)
 %% Maintainer: Matthias Arras
 %% ===============================================================
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{avient}[2025/08/28 v0.7.3 Avient corporate class]
+\ProvidesClass{avient}[2025/08/28 v0.7.4 Avient corporate class]
 
 % ---------- Base class
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
@@ -127,6 +127,18 @@
 \fancyhead[R]{\HeaderLogoBlock}
 \fancyfoot[R]{\small Page~\textbar~{\color{brandmain}\thepage{}}}
 \renewcommand{\headrulewidth}{0pt}
+
+% ---------- Plain pagestyle (no logo, but still confidential + page num)
+\fancypagestyle{plain}{%
+  \fancyhf{} % clear
+  \fancyhead[R]{%
+    \ifx\apm@confidential\empty\else
+      {\small \textcolor{gray}{\textsc{\apm@confidential}} \par}\vspace{2mm}%
+    \fi
+  }
+  \fancyfoot[R]{\small Page~\textbar~{\color{brandmain}\thepage{}}}
+  \renewcommand{\headrulewidth}{0pt}
+}
 
 % ---------- Section heading style
 % Numbered sections
